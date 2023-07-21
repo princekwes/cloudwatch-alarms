@@ -17,3 +17,14 @@ Advantages of AWS CloudWatch:
   3. SNS
 
 
+
+1. Create An EC2 Instance - Ubuntu is fine with t2.micro
+   
+<img width="1299" alt="Screenshot 2023-07-21 at 6 41 52 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/3478348e-5084-4e51-8cec-e65c25a1f0c5">
+Remember to do the following:
+i. Create a keypair to help ssh into the instance
+ii. For just demo purposes, Allow all traffic in your security group section
+
+2. Use your keypairs generated to ssh into the Ec3 Instance
+<img width="868" alt="Screenshot 2023-07-21 at 6 44 38 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/e50bc9d0-5d31-445a-afae-3ee875b529fb">
+
