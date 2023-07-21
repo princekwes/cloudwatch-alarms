@@ -17,14 +17,86 @@ Advantages of AWS CloudWatch:
   3. SNS
 
 
-
-1. Create An EC2 Instance - Ubuntu is fine with t2.micro
+Create An EC2 Instance - Ubuntu is fine with t2.micro
    
 <img width="1299" alt="Screenshot 2023-07-21 at 6 41 52 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/3478348e-5084-4e51-8cec-e65c25a1f0c5">
 Remember to do the following:
+
 i. Create a keypair to help ssh into the instance
+
 ii. For just demo purposes, Allow all traffic in your security group section
 
-2. Use your keypairs generated to ssh into the Ec3 Instance
+Use your keypairs generated to ssh into the Ec3 Instance
 <img width="868" alt="Screenshot 2023-07-21 at 6 44 38 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/e50bc9d0-5d31-445a-afae-3ee875b529fb">
+
+Head back to the AWs Console; Select your Instance, scroll down and head to the monitoring tab. 
+
+Click on "Manage Detailed Monitoring"
+<img width="1433" alt="Screenshot 2023-07-20 at 9 19 26 PM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/efdbe2bd-2202-4eef-b624-b9197ebc8b48">
+
+Enable detailed monitoring for this instance to help cloudwatch get more information
+<img width="775" alt="Screenshot 2023-07-20 at 9 19 38 PM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/3baa081d-3a40-400b-b04c-1e053732155a">
+
+Now Head to the search bar at the top and search for cloudwatch. 
+- <i>little tip: get your instance id before heading to cloudWatch.</i>
+
+Inside CloudWatch; Click on "All Alarms" and to the right side off the page, click on "Create alarm".
+<img width="1680" alt="Screenshot 2023-07-21 at 7 00 51 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/1dc32a53-026c-49ba-bb3a-0d4642f88f02">
+
+Click on "Set Metric"
+<img width="1291" alt="Screenshot 2023-07-21 at 7 03 54 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/41d2a682-4f47-4a76-99fa-e77a3a903d51">
+
+Click on "EC2"
+<img width="1485" alt="Screenshot 2023-07-21 at 7 04 55 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/b18abcb5-3966-443a-b3ef-132aab34a558">
+
+Click on "Per-Instance Metrics". Remember the insstance id i asked you to copy, paste it in the search bar.
+<img width="1481" alt="Screenshot 2023-07-21 at 7 07 14 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/41c9d2f1-39bf-4419-83b9-a8ff9416f6c4">
+
+After entering your instance id, scroll through the data showing below and check CPUUtilisation close to your instance id. And choose "Select metric"
+<img width="1483" alt="Screenshot 2023-07-21 at 7 14 09 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/369cf94b-09b1-453f-a28a-2016fb5d1268">
+
+Now click on "Statistic" and choose Maximum. and also click on "Period" and select your prefered time. I ssuggect 1 minute.
+<img width="1139" alt="Screenshot 2023-07-21 at 7 16 15 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/4213895f-1723-4cc2-b8cb-286c658e3b8d">
+
+Scroll down. Under Conditions and under "Whenever CPUUtilization is..." choose "Greater or Equal" and enter 50 in the "than…" column  and click on Next...
+<img width="872" alt="Screenshot 2023-07-21 at 7 18 23 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/107e12ca-d374-4a4b-8b60-445120dd999f">
+
+On the next page, keep the "Alarm state trigger" settings same and under "Send a notification to the following SNS topic" choose "Ceater New Topic". Give it a name or leave it to default. On the next tab, enter your preferred email addresss to receive notifications. and click "Create Topic".
+<img width="1118" alt="Screenshot 2023-07-21 at 7 48 55 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/8e81912b-76ab-4653-a97c-6dd34886229c">
+
+Leave all other setting sto default and click "Next"
+
+Check your inbox or spam to confirm receipt of the email from sns and confirm the subscription.
+<img width="1377" alt="Screenshot 2023-07-21 at 7 55 59 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/89e9f021-f02c-43e5-9dd8-7dce299041f0">
+
+Click on "Confirm Subscription"
+<img width="1365" alt="Screenshot 2023-07-21 at 7 56 23 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/a6ba05eb-e536-4e48-89ed-7b6e1ce35ccf">
+
+Subscription Confirmed - head back to Cloudwatch to continue configuration
+<img width="594" alt="Screenshot 2023-07-21 at 7 56 38 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/4b7cf72a-2646-4672-90f7-7dd15927afb7">
+
+Give your alarm a name for indentification. Also enter a message that will come with the alert to let you know the particular alert or issue to give attention to.
+Click "Next"
+<img width="911" alt="Screenshot 2023-07-21 at 7 59 52 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/81c6d99c-520a-4747-9a09-a6112e5e62a2">
+
+On the next page, scroll down and click "Create Alarm".
+Setup is now done.
+
+Now click the alarm you just created and see the updates displaying there:
+<img width="1420" alt="Screenshot 2023-07-21 at 8 03 51 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/52d1f157-2f13-49d5-a20d-26fa007edb62">
+
+<img width="1429" alt="Screenshot 2023-07-21 at 8 04 10 AM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/ed93c380-7ede-4c9d-a3f2-1f532590c251">
+
+Now lets go to your terminal and create the file that will spike the CPU for us to get alerts.
+
+In your terminal, with ssh into the ec2 instance done, use vim to create a file called "cpuspike.py" and you can give it any name but make sure the .py extension added.
+
+Open the "cpu-spike.py" in the repo and copy the code into the file you jusst created::
+
+
+Save and exit.
+
+Run Python3 cpuspike.py and head to the cloudwatch to see the 
+
+
 
