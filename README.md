@@ -109,6 +109,8 @@ Congratulations, you just setup your first cloudwatch alert and linked it to sns
 
 Thank you
 
+Special thanks to iam-veeramalla - https://www.youtube.com/@AbhishekVeeramalla
+
 
 
 
