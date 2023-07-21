@@ -91,12 +91,24 @@ Now lets go to your terminal and create the file that will spike the CPU for us 
 
 In your terminal, with ssh into the ec2 instance done, use vim to create a file called "cpuspike.py" and you can give it any name but make sure the .py extension added.
 
-Open the "cpu-spike.py" in the repo and copy the code into the file you jusst created::
-
-
+Open the "cpu_spike.py" in the repo and copy the code into the file you just created::
 Save and exit.
 
-Run Python3 cpuspike.py and head to the cloudwatch to see the 
+Run Python3 cpuspike.py and head to the cloudwatch to see the alarm show a red sign that its traggered.
+<img width="1677" alt="Screenshot 2023-07-20 at 9 15 21 PM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/693b6ed5-caf8-4c79-b598-2b9a273a5184">
+
+<img width="1420" alt="Screenshot 2023-07-20 at 9 15 12 PM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/c08d183b-4137-4518-ade3-cdbb1515d7b5">
+
+<img width="1678" alt="Screenshot 2023-07-20 at 9 15 02 PM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/53e71f6e-297f-4937-9c2c-5f785c1fc919">
+
+Head to your email inbox to see an email alert sent to you:
+
+<img width="1338" alt="Screenshot 2023-07-20 at 9 12 59 PM" src="https://github.com/princekwes/cloudwatch-alarms/assets/1629130/3476deeb-5a1f-44c5-bbca-267c79de20db">
+
+Congratulations, you just setup your first cloudwatch alert and linked it to sns to send you notifications. Take time and explore more ways to get the best out of cloudwatch.
+
+Thank you
+
 
 
 
