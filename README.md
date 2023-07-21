@@ -10,3 +10,10 @@ Advantages of AWS CloudWatch:
   Log Insights: CloudWatch Insights lets you analyze and search log data from various AWS services, making it easier to troubleshoot problems and identify trends.
   Dashboards and Visualization: Create custom dashboards to visualize your application and infrastructure metrics in one place, making it easier to understand the overall 
   health of your system.
+
+  Services Used:
+  1. Ec2
+  2. CloudWatch
+  3. SNS
+
+
